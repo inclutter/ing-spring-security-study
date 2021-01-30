@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.security</groupId>
-    <artifactId>bascisecurity</artifactId>
+    <artifactId>basicsecurity</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>basicsecurity</name>
     <description>Demo project for Spring Boot</description>
