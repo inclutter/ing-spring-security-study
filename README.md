@@ -4,6 +4,7 @@
    1. 프로젝트 구성 및 의존성 추가
    2. TB 서버에 배포
    3. 사용자 정의 보안 기능 구현(user, password porperties에 정의)
+   4. Form Login 인증
 
 ## Chapter1 스프링 시큐리티 기본 API 및 Filter 이해
 
