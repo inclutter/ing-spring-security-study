@@ -20,7 +20,7 @@
 
 <img src='./img/스크린샷 2021-01-31 오전 10.38.08.png'>
 
-### iiii. Form Login 인증
+### iv. Form Login 인증
 
 로그인 성공, 실패시 Redirect 설정 처리
 
