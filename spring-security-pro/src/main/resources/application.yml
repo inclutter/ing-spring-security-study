@@ -1,0 +1,12 @@
+spring:
+  security:
+    user:
+      name: user
+      password: 1111
+
+  web:
+    resources:
+      add-mappings: true
+
+server:
+  port: 8080
