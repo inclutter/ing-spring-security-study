@@ -1,11 +1,13 @@
 package io.security.basicsecurity;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -17,34 +19,19 @@ import java.io.IOException;
 @EnableWebSecurity
 @Configuration
 public class SecurityConfigure extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .anyRequest().authenticated();
         http
-                .formLogin()
-//                .loginPage("/loginPage")
-                .defaultSuccessUrl("/")
-                .failureUrl("/login")
-                .usernameParameter("userid")
-                .passwordParameter("passwd")
-                .loginProcessingUrl("/login_proc")
-                .successHandler(new AuthenticationSuccessHandler() {
-                    @Override
-                    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-                        System.out.println("authentication" + authentication.getName());
-                        httpServletResponse.sendRedirect("/");
-                    }
-                })
-                .failureHandler(new AuthenticationFailureHandler() {
-                    @Override
-                    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-                        System.out.println("exception" + e.getMessage());
-                        httpServletResponse.sendRedirect("/login");
-                    }
-                })
-                // TODO: 누구나 접근 가능하도록 permitAll() 처리 해야함
-                .permitAll();
+                .formLogin();
+        http
+                .rememberMe()
+                .userDetailsService(userDetailsService);
     }
 }
