@@ -6,6 +6,7 @@
    3. 사용자 정의 보안 기능 구현(user, password porperties에 정의)
    4. Form Login 인증
    5. Remember-me 추가
+   6. Dev-ch1-fixed-session branch(세션 고정 보호 테스트 로직 추가 branch)
 3. Swagger 적용
 
 ## 2. Chapter1 스프링 시큐리티 기본 API 및 Filter 이해
