@@ -28,7 +28,6 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 
         http
                 .sessionManagement()
-                .maximumSessions(1)
-                .maxSessionsPreventsLogin(false);
+                .sessionFixation().none();
     }
 }
